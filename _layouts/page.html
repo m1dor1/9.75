@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+{% include nav.html %}
+
+<div class="content">
+
+  {% if page.title and page.title != 'Home' and page.title != 'Archive' and page.title != 'Tags' %}
+    <div class="post-title">
+        <h2>{{ page.title }}</h2>
+        {% if page.date %}
+        <span class="date">{{ page.date | date: "%Y.%m.%d" }}</span>
+        {% endif %}
+    </div>
+  {% endif %}
+  
+  {% if page.markdown %}
+  <article class="post-content markdown">
+    {{ content | markdownify}}
+  </article>
+  {% else %}
+  {{ content }}
+  {% endif %}
+
+</div>

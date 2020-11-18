@@ -1,0 +1,25 @@
+---
+title: Archive
+layout: page
+permalink: /archive/
+---
+
+<div class="list_with_title">
+    {% assign thisYear = 0 %}
+    {% for post in site.posts %}
+        {% assign currentYear = post.date | date: "%Y" %}
+        {% if currentYear != thisYear %}
+        {% unless forloop.first %}</div>{% endunless %}
+        <div class="listing_title" id="{{ currentYear }}">{{ currentYear }}</div>
+        <div class="listing">
+        {% assign thisYear = currentYear %}
+        {% endif %}
+          <div class="listing_item">
+            <div class="listing_post">
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                <div class="post_time"><span class="date">{{ post.date | date: "%m-%d" }}</span></div>
+            </div>
+          </div>
+        {% if forloop.last %}</div>{% endif %}
+    {% endfor %}
+</div>

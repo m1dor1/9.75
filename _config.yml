@@ -1,0 +1,32 @@
+# Site Info
+
+title: 'Platform 9.75'
+baseurl: '/9.75'
+url: 'https://m1dor1.github.io'
+lang: 'zh'
+logo: '/logo.svg'
+
+author: '常盤 みどり'
+github: 'https://github.com/m1dor1'
+misskey: 'https://co.misskey.io/@midori'
+description: '你好呀～'
+
+# Site configurations
+
+gems:
+  - jekyll-paginate
+
+sass:
+  style: compressed
+
+paginate: 7
+paginate_path: '/page:num/'
+permalink: '/:year/:title'
+excerpt_separator: '<!-- more -->'
+
+nav:
+  Archive: '/archive/'
+  Tags: '/tags/'
+  About: '/about/'
+
+addition: 'Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.'

@@ -1,0 +1,21 @@
+---
+title: Tags
+layout: page
+permalink: /tags/
+---
+
+<div class="list_with_title">
+    {% for tag in site.tags %}
+    <div class="tag listing_title" id="{{ tag[0] | slugify }}">{{ tag[0] }}</div>
+    <div class="listing">
+        {% for post in tag[1] %}
+        <div class="listing_item">
+            <div class="listing_post">
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                <div class="post_time"><span class="date">{{ post.date | date: "%Y.%m.%d" }}</span></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>

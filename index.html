@@ -1,0 +1,55 @@
+---
+layout: page
+title: Home
+---
+
+
+  {% for post in paginator.posts %}
+  <div class="post">
+
+    <div class="post-title">
+      <h2><a href="{{ site.baseurl }}{{ post.url }}">
+        {{ post.title }}
+      </a></h2>
+    </div>
+
+    <div class="post-preview markdown">
+      {{ post.excerpt | markdownify }}
+    </div>
+
+    <div class="post-meta">
+
+    <span class="field">
+      <i class="fa fa-sun"></i>
+      <span class="date">
+      {{ post.date | date: "%B %-d, %Y" }}
+      </span>
+    </span>
+
+    {% if post.tags != empty %}
+    <span class="field tags">
+      <i class="fa fa-tags"></i>
+    {% for tag in post.tags %}
+    <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
+    {% endfor %}
+    </span>
+    {% endif %}
+
+    </div>
+
+  </div>
+  {% endfor %}
+
+  <div class="pagination">
+    {% if paginator.previous_page == 1 %}
+    <a class="prev" href="{{ site.baseurl }}/">{% if site.lang == 'zh' %}返回上一页{% else %}Prev{% endif %}</a>
+    {% elsif paginator.previous_page %}
+    <a class="prev" href="{{ site.baseurl }}/page{{ paginator.previous_page }}/">{% if site.lang == 'zh' %}返回上一页{% else %}Prev{% endif %}</a>
+    {% endif %}
+    {% if paginator.next_page %}
+    <a class="next" href="{{ site.baseurl }}/page{{ paginator.next_page }}/">{% if site.lang == 'zh' %}阅读更多文章{% else %}Next{% endif %}</a>
+    {% endif %}
+  </div>
+
+
+

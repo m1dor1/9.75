@@ -1,0 +1,9 @@
+<figure align="center" class="image">
+  {% assign root = include.url | slice: 0 %}
+  {% if root == "/" %}
+  <img src="{{ site.url }}{{ site.baseurl }}{{ include.url }}" alt="{{ include.alt }}">
+  {% else %}
+  <img src="{{ include.url }}" alt="{{ include.alt }}">
+  {% endif %}
+  <figcaption>{{ include.alt }}</figcaption>
+</figure>

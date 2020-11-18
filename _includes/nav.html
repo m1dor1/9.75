@@ -1,0 +1,39 @@
+<div class="nav_container">
+  <div class="site_nav" id="site_nav">
+    <ul>
+      {% for link in site.nav %}
+      <li>
+        <a href="{{ link[1] | prepend: site.baseurl }}">{{ link[0] }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="menu_icon">
+    <a id="menu_icon"><i class="remixicon-links-line"></i></a>
+  </div>
+</div>
+
+<div class="header">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="{{ site.baseurl }}/">
+          <span>{{ site.title }}</span>
+          <img src="{{ "/logo.svg" | prepend: site.baseurl }}"/>
+        </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">{{ site.description }}</p>
+      <div class="my_socials">
+        {% if site.github %}
+        <a href="{{ site.github }}" title="GitHub" target="_blank"><i class="fa fa-github"></i></a>
+        {% endif %}
+        {% if site.misskey %}
+        <a href="{{ site.misskey }}" title="Misskey" target="_blank"><i class="fa fa-misskey"></i></a>
+        {% endif %}
+        <a href="{{ site.baseurl }}/feed.xml" type="application/rss+xml" title="RSS" target="_blank"><i class="fa fa-rss"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

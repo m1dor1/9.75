@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+{% include nav.html %}
+
+<div class="content">
+  <div class="post">
+    <div class="post-title">
+        <h2>{{ page.title }}</h2>
+        {% if page.date %}
+        <span class="date">{{ page.date | date: "%Y.%m.%d" }}</span>
+        {% endif %}
+    </div>
+    <article class="post-content markdown">
+        {{ page.content | markdownify }}
+    </article>
+    <div class="post-footer post-meta">
+        {% if page.tags != empty %}
+        <span class="field tags">
+          <i class="fa fa-tags"></i>
+        {% for tag in page.tags %}
+        <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
+        {% endfor %}
+        </span>
+        {% endif %}
+    </div>
+  </div>
+</div>
